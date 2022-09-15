@@ -1,11 +1,40 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const clear = document.getElementById("clear")
+const dec = document.querySelector('#decrease')
+const inc = document.querySelector('#increase')
+const sizediv = document.getElementById('size')
 
-let size = 7
+let size = 10
 let isPressed = false
 let color = 'black'
 let x
 let y 
+
+var theInput = document.getElementById("color");
+
+theInput.addEventListener("input", function(){
+  color = theInput.value;
+  
+  // Do something with `theColor` here.
+}, false);
+
+dec.addEventListener('click',()=>{
+    if(size>9 && size<=20){
+        size = size - 5;
+    }
+
+    sizediv.innerHTML = size
+})
+
+inc.addEventListener('click',()=>{
+    if(size<=15){
+        size = size + 5
+    }
+
+    sizediv.innerHTML = size
+})
+
 
 canvas.addEventListener('mousedown',(e)=>{
     isPressed = true
@@ -55,3 +84,6 @@ function drawLine(x1,y1,x2,y2) {
     ctx.stroke()
 }
 
+clear.addEventListener('click', ()=>{
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+})
