@@ -27,8 +27,10 @@ eraser.addEventListener('click',()=>{
 
     if(eraser.classList.contains('active')){
         canvas.classList.remove('cursor-paint')
+        canvas.classList.add('cursor-delete')
     }else{
         canvas.classList.add('cursor-paint')
+        canvas.classList.remove('cursor-delete')
     }
 
 })
@@ -42,6 +44,8 @@ theInput.addEventListener("input", function(){
   
     if(eraser.classList.contains('active')){
         eraser.classList.remove('active')
+        canvas.classList.add('cursor-paint')
+        canvas.classList.remove('cursor-delete')
     }
 
   // Do something with `theColor` here.
