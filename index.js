@@ -4,6 +4,7 @@ const clear = document.getElementById("clear")
 const dec = document.querySelector('#decrease')
 const inc = document.querySelector('#increase')
 const sizediv = document.getElementById('size')
+const eraser = document.getElementById('eraser')
 
 let size = 10
 let isPressed = false
@@ -11,11 +12,38 @@ let color = 'black'
 let x
 let y 
 
+
+
+eraser.addEventListener('click',()=>{
+
+        
+    if(color !== 'whitesmoke'){
+        color = 'whitesmoke'
+    }else {
+            color = theInput.value;
+    }
+
+    eraser.classList.toggle('active')
+
+    if(eraser.classList.contains('active')){
+        canvas.classList.remove('cursor-paint')
+    }else{
+        canvas.classList.add('cursor-paint')
+    }
+
+})
+
+
+
 var theInput = document.getElementById("color");
 
 theInput.addEventListener("input", function(){
   color = theInput.value;
   
+    if(eraser.classList.contains('active')){
+        eraser.classList.remove('active')
+    }
+
   // Do something with `theColor` here.
 }, false);
 
