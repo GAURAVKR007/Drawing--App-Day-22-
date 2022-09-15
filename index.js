@@ -6,7 +6,7 @@ const inc = document.querySelector('#increase')
 const sizediv = document.getElementById('size')
 const eraser = document.getElementById('eraser')
 
-let size = 10
+let size = 7
 let isPressed = false
 let color = 'black'
 let x
@@ -52,16 +52,16 @@ theInput.addEventListener("input", function(){
 }, false);
 
 dec.addEventListener('click',()=>{
-    if(size>9 && size<=20){
-        size = size - 5;
+    if(size>1 && size<=20){
+        size = size - 1;
     }
 
     sizediv.innerHTML = size
 })
 
 inc.addEventListener('click',()=>{
-    if(size<=15){
-        size = size + 5
+    if(size<=19){
+        size = size + 1
     }
 
     sizediv.innerHTML = size
